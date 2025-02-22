@@ -18,4 +18,8 @@ func _process(delta):
 		var new_laser = player_laser_tscn.instantiate()
 		new_laser.position = self.position
 		add_sibling(new_laser)
-		
+
+
+func _on_area_entered(area):
+	if area.is_in_group("enemy_group"):
+		queue_free()
