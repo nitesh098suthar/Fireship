@@ -1,19 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://qbxxlht0vi2x"]
+[gd_scene load_steps=5 format=3 uid="uid://qbxxlht0vi2x"]
 
 [ext_resource type="Texture2D" uid="uid://wa76cciajih3" path="res://assets/back.png" id="1_lul71"]
-[ext_resource type="Texture2D" uid="uid://d37r4ehhlwjfr" path="res://assets/kenney_space-shooter-redux/PNG/playerShip2_blue.png" id="2_u8q7c"]
-[ext_resource type="Texture2D" uid="uid://c037krmvpyawj" path="res://assets/kenney_space-shooter-redux/PNG/Enemies/enemyRed4.png" id="3_x472n"]
-[ext_resource type="Texture2D" uid="uid://b2hwinlyqr250" path="res://assets/kenney_space-shooter-redux/PNG/Lasers/laserBlue14.png" id="4_f2tvw"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_nrk75"]
-radius = 55.0818
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_87bah"]
-size = Vector2(82, 84)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8c2uo"]
-radius = 7.0
-height = 58.0
+[ext_resource type="PackedScene" uid="uid://wqa48utb80wm" path="res://main_player.tscn" id="2_3rt0f"]
+[ext_resource type="PackedScene" uid="uid://igasa76xclj6" path="res://player_laser.tscn" id="3_0bi04"]
+[ext_resource type="PackedScene" uid="uid://bn3s5puhf0p3l" path="res://enemy_spawner.tscn" id="4_joxnp"]
 
 [node name="Main" type="Node"]
 
@@ -24,29 +14,8 @@ scale = Vector2(1.02271, 1.02344)
 texture = ExtResource("1_lul71")
 metadata/_edit_lock_ = true
 
-[node name="Player" type="Area2D" parent="."]
-metadata/_edit_group_ = true
+[node name="Laser" parent="." instance=ExtResource("3_0bi04")]
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-texture = ExtResource("2_u8q7c")
+[node name="Player" parent="." instance=ExtResource("2_3rt0f")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("CircleShape2D_nrk75")
-
-[node name="Enemy" type="Area2D" parent="."]
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
-texture = ExtResource("3_x472n")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
-shape = SubResource("RectangleShape2D_87bah")
-
-[node name="Laser" type="Area2D" parent="."]
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Laser"]
-texture = ExtResource("4_f2tvw")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Laser"]
-shape = SubResource("CapsuleShape2D_8c2uo")
+[node name="EnemySpawner" parent="." instance=ExtResource("4_joxnp")]

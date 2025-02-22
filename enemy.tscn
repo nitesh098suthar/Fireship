@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dh4p4sjich0xr"]
+
+[ext_resource type="Texture2D" uid="uid://c037krmvpyawj" path="res://assets/kenney_space-shooter-redux/PNG/Enemies/enemyRed4.png" id="1_1cwnb"]
+[ext_resource type="Script" path="res://enemy.gd" id="1_elapa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_87bah"]
+size = Vector2(82, 84)
+
+[node name="Enemy" type="Area2D"]
+script = ExtResource("1_elapa")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1cwnb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_87bah")
