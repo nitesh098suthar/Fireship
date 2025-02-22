@@ -10,6 +10,7 @@ enemy_tscn = ExtResource("1_l1q0g")
 [node name="Enemy" parent="." instance=ExtResource("1_l1q0g")]
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

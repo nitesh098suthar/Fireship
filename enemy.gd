@@ -14,3 +14,4 @@ func _process(delta):
 func _on_area_entered(area):
 	if area.is_in_group("laser_group"):
 		queue_free()
+		GameState.score += 1

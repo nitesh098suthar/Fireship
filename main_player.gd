@@ -23,3 +23,5 @@ func _process(delta):
 func _on_area_entered(area):
 	if area.is_in_group("enemy_group"):
 		queue_free()
+		GameState.is_game_over = true
+		print(GameState.is_game_over)
