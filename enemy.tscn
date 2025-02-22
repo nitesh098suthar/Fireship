@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_87bah"]
 size = Vector2(82, 84)
 
-[node name="Enemy" type="Area2D"]
+[node name="Enemy" type="Area2D" groups=["enemy_group"]]
 script = ExtResource("1_elapa")
 metadata/_edit_group_ = true
 
@@ -15,3 +15,5 @@ texture = ExtResource("1_1cwnb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_87bah")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

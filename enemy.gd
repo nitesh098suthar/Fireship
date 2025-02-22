@@ -8,7 +8,9 @@ func _process(delta):
 	var viewport_y = get_viewport_rect().size.y
 	if position.y >= viewport_y + 100:
 		queue_free()
-		print("destroyed the enemey")
+		#print("destroyed the enemey")
 
-func _on_timer_timeout():
-	pass # Replace with function body.
+
+func _on_area_entered(area):
+	if area.is_in_group("laser_group"):
+		queue_free()

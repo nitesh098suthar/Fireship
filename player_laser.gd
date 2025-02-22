@@ -14,5 +14,9 @@ func _process(delta):
 	position.y -= speed * delta;
 	if position.y <= -100:
 		queue_free()
-		print("this is destroyed")
+		#print("this is destroyed")
 
+
+func _on_area_entered(area):
+	if area.is_in_group("enemy_group"):
+		queue_free()
