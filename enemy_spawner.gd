@@ -14,4 +14,5 @@ func _on_timer_timeout():
 	var new_enemy = enemy_tscn.instantiate()
 	var viewport_x = get_viewport().get_visible_rect().size.x
 	new_enemy.position.x = randf_range(0, viewport_x)
+	new_enemy.position.y = -100
 	add_child(new_enemy)
